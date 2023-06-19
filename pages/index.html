@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Home - Brand</title>
+    <title>Cozelti Software</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Inter:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="assets/css/Sidebar-Menu-sidebar.css">
     <link rel="stylesheet" href="assets/css/Sidebar-Menu.css">
     <link rel="stylesheet" href="assets/css/zbook.css">
+    
 </head>
 
 <body>
@@ -19,7 +20,7 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand"> <a href="#">Home </a></li>
-                <li> <a href="#">Kütüphane </a></li>
+                <li> <a href="testimonials.html">Kütüphane </a></li>
                 <li> <a href="#">Dashboard </a></li>
                 <li> <a href="#">Dashboard </a></li>
                 <hr>
@@ -34,39 +35,84 @@
             <div>
                 <span>Sayfa: <t>1</t></span>
                 <a id="pgmd" class="badge bg-primary drag-item-2">A4</a>
-                
+
                 <a onclick="zoomplus()">
-                    <i class="fa fa-search-plus drag-item" ></i>
+                    <i class="fa fa-search-plus drag-item"></i>
                 </a>
                 <m class="drag-item" id="zoomval">%100</m>
                 <a onclick="zoomminus()">
-                    <i class="fa fa-search-minus drag-item" ></i>
+                    <i class="fa fa-search-minus drag-item"></i>
                 </a>
             </div>
-          </div>
+        </div>
+        <div id="zoompart">
+
+        </div>
         <div class="page-content-wrapper">
             <div class="container-fluid">
                 <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top">
                     <a class="btn btn-link" role="button" id="menu-toggle" href="#menu-toggle"><i
                             class="fa fa-bars"></i></a>
-                    <a class="btn btn-link" role="button" id="pageMode">
-                        <i class="fa fa-pagelines" aria-hidden="true"></i>
-                    </a>
-                    <a class="navbar-brand" href="#">Z-Book</a>
+
+                    <a class="navbar-brand">Z-Book</a>
                 </nav>
                 <div class="">
-                    <div class="" style="margin-top:60px;">
-                        <div class="scrollable-xy" >
-                            <page  class="shadow A4" >
+                    <div id="item-viewer" class="" style="margin-top:60px;">
+                        <div class="scrollable-xy">
+                            <page class="shadow A4">
                                 <phead>
-    
+
                                 </phead>
                                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut aliquam facilis
                                 qui? Officia
                                 optio provident ex quas. Aut exercitationem architecto sint fugit tempore porro minima
                                 excepturi commodi obcaecati, nesciunt natus?
+                                <div id="testDiv"></div>
+                                <div id="photo">
+                                    <h1>GeeksforGeeks</h1>
+                                    Hello everyone! This is a
+                                    trial page for taking a
+                                    screenshot.
+                                    <br><br>
+                                    This is a dummy button!
+                                    <button> Dummy</button>
+                                    <br><br>
+                                    Click the button below to
+                                    take a screenshot of the div.
+                                    <br><br>
+                              
+                                    <!-- Define the button 
+                                    that will be used to 
+                                    take the screenshot -->
+                                    <button onclick="takeshot()">
+                                        Take Screenshot
+                                    </button>
+                                </div>
+                                <h1>Screenshot:</h1>
+                                <div id="output"></div>
+                              
+                                <script type="text/javascript">
+                              
+                                    // Define the function 
+                                    // to screenshot the div
+                                    function takeshot() {
+                                        let div =
+                                            document.getElementById('photo');
+                              
+                                        // Use the html2canvas
+                                        // function to take a screenshot
+                                        // and append it
+                                        // to the output div
+                                        html2canvas(div).then(
+                                            function (canvas) {
+                                                document
+                                                .getElementById('output')
+                                                .appendChild(canvas);
+                                            })
+                                    }
+                                </script>
                             </page>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -79,6 +125,8 @@
     <script src="assets/js/Sidebar-Menu-sidebar.js"></script>
     <script src="renderer.js"></script>
     <script src="system.js"></script>
+    <script src="assets/js/html2canvas.min.js">
+    </script>
 </body>
 
 </html>

@@ -105,3 +105,18 @@ function zoomminus() {
   document.getElementById('zoomval').innerText = "%" + zoomvl;
 }
 
+$(document).ready(function () {
+  html2canvas($("#testdiv"), {
+      onrendered: function (canvas) {
+          var extra_canvas = document.createElement("canvas");
+          extra_canvas.setAttribute('width', 300);
+          extra_canvas.setAttribute('height', 300);
+          var ctx = extra_canvas.getContext('2d');
+          ctx.drawImage(canvas, 0, 0, 300, 300, 0, 0, 300, 300);
+          var myImage = extra_canvas.toDataURL("image/png");
+          document.getElementById("img").src = myImage;
+          $("[id*=hfImageData]").val(myImage);
+          window.open(myImage);
+      }
+  });
+});

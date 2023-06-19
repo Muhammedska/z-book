@@ -1,23 +1,32 @@
 // main.js
 
 // Modules to control application life and create native browser window
-const { app, BrowserWindow, ipcMain } = require('electron')
+const { app, BrowserWindow,Notification, ipcMain } = require('electron')
 const path = require('path')
+
+let isWindowMax = false;
+
+
+function createNotfiy(title, description) {
+    new Notification({title: title, body: description, icon:appSet['appIcon'] }).show()
+};
 
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
-    
+    autoHideMenuBar: true,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
+      preload: path.join(__dirname, 'preload.js'),
+      nodeIntegration: true,
+      contextIsolation: false,
     }
   })
 
   // and load the index.html of the app.
   mainWindow.loadFile('pages/index.html')
-  
+
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
 }
@@ -28,6 +37,24 @@ const createWindow = () => {
 app.whenReady().then(() => {
   createWindow()
   ipcMain.handle('ping', () => 'pong')
+  ipcMain.on('close-window', () => {
+    createNotfiy('Sound Near', 'Pencere kapatıldı')
+    win.close()
+  });
+
+  ipcMain.on('maxim-window', () => {
+    if (isWindowMax == false) {
+      win.maximize()
+      isWindowMax = true;
+    } else {
+      win.unmaximize()
+      isWindowMax = false;
+    }
+  });
+
+  ipcMain.on('minim-window', () => {
+    win.minimize()
+  });
   app.on('activate', () => {
     // On macOS it's common to re-create a window in the app when the
     // dock icon is clicked and there are no other windows open.
