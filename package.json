@@ -1,0 +1,23 @@
+{
+  "name": "z-book",
+  "version": "1.0.0",
+  "description": "z-book",
+  "main": "main.js",
+  
+    "scripts": {
+      "start": "electron ."
+    },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Muhammedska/z-book.git"
+  },
+  "author": "Cozelti Software",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Muhammedska/z-book/issues"
+  },
+  "homepage": "https://github.com/Muhammedska/z-book#readme",
+  "devDependencies": {
+    "electron": "^25.1.1"
+  }
+}

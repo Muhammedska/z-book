@@ -1,0 +1,27 @@
+page{
+    text-align: left;
+    display: block;
+    margin: 20px auto 20px auto;
+    padding: 10px;
+    color: black;
+    border-radius: 10px;
+    box-shadow: 5px 5px rgba(143, 143, 143, 0.507);
+    background-color: rgba(255, 255, 255, 0.856);
+}
+page[size="A4"] {
+  width: 21cm;
+  height: 29.7cm;
+}
+page[size="fill"] {
+    width: auto;
+    height: 29.7cm;
+  }
+page[size="A4"][layout="landscape"] {
+  width: 29.7cm;
+  height: 21cm;
+}
+phead{
+    width: auto;
+    height: 50px;
+    
+}
