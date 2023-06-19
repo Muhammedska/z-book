@@ -32,13 +32,14 @@
             <!-- Include a header DIV with the same name as the draggable DIV, followed by "header" -->
             <div id="mydivheader">::&nbsp;&nbsp;&nbsp;::</div>
             <div>
+                <span>Sayfa: <t>1</t></span>
                 <a id="pgmd" class="badge bg-primary drag-item-2">A4</a>
                 
-                <a href="">
+                <a onclick="zoomplus()">
                     <i class="fa fa-search-plus drag-item" ></i>
                 </a>
-                <m class="drag-item">%100</m>
-                <a href="">
+                <m class="drag-item" id="zoomval">%100</m>
+                <a onclick="zoomminus()">
                     <i class="fa fa-search-minus drag-item" ></i>
                 </a>
             </div>
@@ -53,18 +54,20 @@
                     </a>
                     <a class="navbar-brand" href="#">Z-Book</a>
                 </nav>
-                <div class="row" style="margin-top:60px;">
-                    <div class="col-md-12 align-content-center">
-                        <page size="" class="shadow A4">
-                            <phead>
-
-                            </phead>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut aliquam facilis
-                            qui? Officia
-                            optio provident ex quas. Aut exercitationem architecto sint fugit tempore porro minima
-                            excepturi commodi obcaecati, nesciunt natus?
-                        </page>
-                        
+                <div class="">
+                    <div class="" style="margin-top:60px;">
+                        <div class="scrollable-xy" >
+                            <page  class="shadow A4" >
+                                <phead>
+    
+                                </phead>
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut aliquam facilis
+                                qui? Officia
+                                optio provident ex quas. Aut exercitationem architecto sint fugit tempore porro minima
+                                excepturi commodi obcaecati, nesciunt natus?
+                            </page>
+                            
+                        </div>
                     </div>
                 </div>
             </div>

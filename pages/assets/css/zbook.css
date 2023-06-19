@@ -1,6 +1,7 @@
 /* width */
 ::-webkit-scrollbar {
   width: 0px;
+  display: none;
 }
 
 /* Track */
@@ -16,6 +17,9 @@
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555; 
+}
+.scrollable-xy{
+  overflow: scroll;
 }
 page{
     text-align: left;
@@ -57,6 +61,7 @@ phead{
   padding: 5px;
 }
 #mydiv {
+  user-select: none;
   position: absolute;
   z-index: 9;
   width:200px;
