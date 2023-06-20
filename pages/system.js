@@ -1,6 +1,5 @@
 const pageMode = document.getElementById('pgmd');
-
-
+let pagenum = 1;
 let pageType = 'A4';
 let zoomvl = 100;
 let imzoomvl = 100;

@@ -33,7 +33,15 @@
             <!-- Include a header DIV with the same name as the draggable DIV, followed by "header" -->
             <div id="mydivheader">::&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;::</div>
             <div>
-                <span>Sayfa: <t>1</t></span>
+                <span class="justify-content-between" style="width:100%;">
+                    <a>
+                        <i class="fa fa-arrow-circle-o-up drag-item"></i>
+                    </a>
+                    <span class="drag-item"><t>1</t> </span>
+                    <a>
+                        <i class="fa fa-arrow-circle-o-down drag-item"></i>
+                    </a> 
+                </span>
                 <a id="pgmd" class="badge bg-primary drag-item-2">A4</a>
 
                 <a onclick="zoomplus()">
@@ -45,7 +53,7 @@
                 </a>
             </div>
         </div>
-        <div id="zoompart" class="modal bg-white" style="margin-top:60px;">
+        <div id="zoompart" class="modal bg-white" style="display:none;margin-top:60px;">
             <div>
                 <div class>:: ::</div>
             </div>
@@ -66,17 +74,18 @@
                 </div>
                 <div class="text-right">
                     <div>
-                        <img id="imview" src="./test.png" alt="test"  style="width: 400px;">
+                        <img id="imview" src="" alt="test"  style="width: 400px;">
                     </div>
                 </div>
             </div>
         </div>
         <div class="page-content-wrapper">
             <div class="container-fluid">
-                <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top">
-                    <a class="btn btn-link" role="button" id="menu-toggle" href="#menu-toggle"><i
-                            class="fa fa-bars"></i></a>
-
+                <nav class="navbar navbar-expand-lg navbar-dark justify-content-between bg-black fixed-top">
+                    <a class="btn btn-link" role="button" id="menu-toggle" href="#menu-toggle">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                    <span>Sayfa: <t class="badge bg-info badge-pill">1</t> &nbsp;&nbsp;</span>
                     <a class="navbar-brand">Z-Book</a>
                 </nav>
                 <div class="">
@@ -86,6 +95,22 @@
                                 <phead>
 
                                 </phead>
+                                <div class="q-item">
+                                    <div class="row">
+                                        <div class="col-1">
+                                            <zoom class="mg col-1">
+                                                <i class="fa fa-search" style="font-size: 20px;" ></i>
+                                            </zoom>
+                                        </div>
+                                        
+                                        <div class="col-11 ">
+
+                                            <img src="./book/1/Ekran görüntüsü 2023-06-20 171030.png" class="q-img col-11">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="q-item row">
+                                </div>
                                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut aliquam facilis
                                 qui? Officia
                                 optio provident ex quas. Aut exercitationem architecto sint fugit tempore porro minima
@@ -114,26 +139,7 @@
                                 <h1>Screenshot:</h1>
                                 <div id="output"></div>
                               
-                                <script type="text/javascript">
-                              
-                                    // Define the function 
-                                    // to screenshot the div
-                                    function takeshot() {
-                                        let div =
-                                            document.getElementById('photo');
-                              
-                                        // Use the html2canvas
-                                        // function to take a screenshot
-                                        // and append it
-                                        // to the output div
-                                        html2canvas(div).then(
-                                            function (canvas) {
-                                                document
-                                                .getElementById('output')
-                                                .appendChild(canvas);
-                                            })
-                                    }
-                                </script>
+                                
                             </page>
 
                         </div>
@@ -146,9 +152,10 @@
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bold-and-dark.js"></script>
     <script src="assets/js/Sidebar-Menu-sidebar.js"></script>
-    <script src="renderer.js"></script>
     <script src="system.js"></script>
     <script src="resize.js"></script>
+    <script src="snapshot.js"></script>
+    <script src="renderer.js"></script>
     <script src="assets/js/html2canvas.min.js">
     </script>
 </body>

@@ -258,7 +258,7 @@ function onUp(e) {
       preSnapped = null;
     }
 
-    hintHide();
+    //hintHide();
 
   }
 

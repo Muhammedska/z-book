@@ -53,11 +53,40 @@ phead {
   margin-bottom: 5px;
   padding: 5px;
 }
+.drag-item-3 {
+  font-size: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 5px;
+}
 .drag-item-2 {
   width: 190px;
   margin-top: 5px;
   margin-bottom: 5px;
   padding: 5px;
+}
+.q-item{
+  width: 50%;
+  margin-top: 5px;
+  bottom:5px;
+}
+.mg{
+  width: 40px;
+  height: 40px;  
+  position: relative;
+  left:0px;
+  top:0px;
+  z-index: 2;
+  padding: 5px;
+  border-radius: 100%;
+  color:#f1f1f1;
+  background-color:purple;
+}
+.q-item>.q-img{
+  z-index: 1;
+  position: relative;
+  width: 100%;
+  height: auto;
 }
 #mydiv {
   user-select: none;
@@ -80,7 +109,7 @@ phead {
 #immove {
   user-select: none;
   position: absolute;
-  z-index: 9;
+  z-index: 10;
   margin-bottom: 100px;
   left: 10px;
   top: 10px;
@@ -96,15 +125,42 @@ phead {
   background-color: #2196f3;
   color: #fff;
 }
+#paint {
+  user-select: none;
+  position: absolute;
+  z-index: 12;
+  margin-bottom: 100px;
+  left: 10px;
+  top: 10px;
+  border: 5px #fff;
+  border-radius: 10px;
+  text-align: center;
+  resize: both;
+}
+#paintheader {
+  padding: 10px;
+  cursor: move;
+  z-index: 12;
+  background-color: #2196f3;
+  color: #fff;
+}
 #imresize{
   position: relative;
   padding: 5px;
   cursor: sw-resize;
 }
+#canvos{
+  position: fixed;
+  z-index: 11;
+  width: 100%;
+  height: 100%;
+  display: block;
+  background-color: #ffffff00;
 
+}
 #zoompart {
   position: fixed;
-  z-index: 8;
+  z-index: 10;
   width: 100%;
   height: 100%;
   display: block;
