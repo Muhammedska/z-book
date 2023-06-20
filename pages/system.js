@@ -3,6 +3,7 @@ const pageMode = document.getElementById('pgmd');
 
 let pageType = 'A4';
 let zoomvl = 100;
+let imzoomvl = 100;
 let isScroll = 0;
 document.getElementById('wrapper').classList.add('toggled')
 
@@ -29,7 +30,7 @@ pageMode.onclick = () => {
 }
 // Make the DIV element draggable:
 dragElement(document.getElementById("mydiv"));
-
+dragElement(document.getElementById('immove'))
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
   if (document.getElementById(elmnt.id + "header")) {
@@ -70,19 +71,20 @@ function dragElement(elmnt) {
     document.onmousemove = null;
   }
 }
+
 window.onscroll = function () {
   console.log("scrolled  " + window.pageYOffset)
-  var locate = document.getElementById("mydiv").offsetTop ;
-  if(isScroll > window.pageYOffset){
+  var locate = document.getElementById("mydiv").offsetTop;
+  if (isScroll > window.pageYOffset) {
     var calc = isScroll - window.pageYOffset
-    document.getElementById("mydiv").style.top = locate - calc +"px";
-  }else if(isScroll < window.pageYOffset){
+    document.getElementById("mydiv").style.top = locate - calc + "px";
+  } else if (isScroll < window.pageYOffset) {
     var calc = isScroll - window.pageYOffset
-    document.getElementById("mydiv").style.top = locate - calc +"px";
+    document.getElementById("mydiv").style.top = locate - calc + "px";
 
   }
   isScroll = window.pageYOffset;
-  console.log("scrolled  " + window.pageYOffset +"px / new location  " + document.getElementById("mydiv").offsetTop )
+  console.log("scrolled  " + window.pageYOffset + "px / new location  " + document.getElementById("mydiv").offsetTop)
 };
 
 function zoomplus() {
@@ -90,7 +92,7 @@ function zoomplus() {
   var page = document.getElementsByTagName('page');
   for (const iterator of page) {
 
-    iterator.style.zoom = zoomvl+"%";
+    iterator.style.zoom = zoomvl + "%";
   }
   document.getElementById('zoomval').innerText = "%" + zoomvl;
 }
@@ -100,23 +102,36 @@ function zoomminus() {
   var page = document.querySelectorAll('page');
   for (const iterator of page) {
 
-    iterator.style.zoom = zoomvl+"%";
+    iterator.style.zoom = zoomvl + "%";
   }
   document.getElementById('zoomval').innerText = "%" + zoomvl;
 }
+function imzoomplus() {
+  imzoomvl += 10
 
-$(document).ready(function () {
-  html2canvas($("#testdiv"), {
-      onrendered: function (canvas) {
-          var extra_canvas = document.createElement("canvas");
-          extra_canvas.setAttribute('width', 300);
-          extra_canvas.setAttribute('height', 300);
-          var ctx = extra_canvas.getContext('2d');
-          ctx.drawImage(canvas, 0, 0, 300, 300, 0, 0, 300, 300);
-          var myImage = extra_canvas.toDataURL("image/png");
-          document.getElementById("img").src = myImage;
-          $("[id*=hfImageData]").val(myImage);
-          window.open(myImage);
-      }
-  });
-});
+  var page = document.getElementById('imview');
+
+  page.style.zoom = imzoomvl + "%";
+  document.getElementById('imzoomval').innerText = "%" + imzoomvl;
+}
+
+function imzoomminus() {
+  imzoomvl -= 10
+  if (imzoomvl < 20) {
+    imzoomvl = 20
+  } else {
+    var page = document.getElementById('imview');
+
+    page.style.zoom = imzoomvl + "%";
+    document.getElementById('imzoomval').innerText = "%" + imzoomvl;
+  }
+}
+
+function zoompart(item) {
+  const zoompartarea = document.getElementById('zoompart')
+  zoompartarea.style.height = window.screen.height;
+}
+function zoomparthide(){
+  document.getElementById('zoompart').style.display = "none";
+}
+

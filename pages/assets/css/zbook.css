@@ -6,55 +6,54 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; 
+  background: #f1f1f1;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888; 
+  background: #888;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; 
+  background: #555;
 }
-.scrollable-xy{
+.scrollable-xy {
   overflow: scroll;
 }
-page{
-    text-align: left;
-    display: block;
-    margin: 20px auto 20px auto;
-    padding: 10px;
-    color: black;
-    border-radius: 10px;
-    box-shadow: 5px 5px rgba(143, 143, 143, 0.507);
-    background-color: rgba(255, 255, 255, 0.856);
+page {
+  text-align: left;
+  display: block;
+  margin: 20px auto 20px auto;
+  padding: 10px;
+  color: black;
+  border-radius: 10px;
+  box-shadow: 5px 5px rgba(143, 143, 143, 0.507);
+  background-color: rgba(255, 255, 255, 0.856);
 }
 page.A4 {
   width: 21cm;
   height: 29.7cm;
 }
 page.fill {
-    width: auto;
-    height: 29.7cm;
-  }
+  width: auto;
+  height: 29.7cm;
+}
 page[size="A4"][layout="landscape"] {
   width: 29.7cm;
   height: 21cm;
 }
-phead{
-    width: auto;
-    height: 50px;
-    
+phead {
+  width: auto;
+  height: 50px;
 }
-.drag-item{
+.drag-item {
   font-size: 30px;
   margin-top: 5px;
   margin-bottom: 5px;
   padding: 5px;
 }
-.drag-item-2{
+.drag-item-2 {
   width: 190px;
   margin-top: 5px;
   margin-bottom: 5px;
@@ -64,18 +63,100 @@ phead{
   user-select: none;
   position: absolute;
   z-index: 9;
-  width:200px;
-  right:10px;
-  top:250px;
-  border:5px #fff ;
+  width: 200px;
+  right: 10px;
+  top: 250px;
+  border: 5px #fff;
   border-radius: 10px;
   text-align: center;
 }
-
 #mydivheader {
   padding: 10px;
   cursor: move;
   z-index: 10;
-  background-color: #2196F3;
+  background-color: #2196f3;
   color: #fff;
+}
+#immove {
+  user-select: none;
+  position: absolute;
+  z-index: 9;
+  margin-bottom: 100px;
+  left: 10px;
+  top: 10px;
+  border: 5px #fff;
+  border-radius: 10px;
+  text-align: center;
+  resize: both;
+}
+#immoveheader {
+  padding: 10px;
+  cursor: move;
+  z-index: 10;
+  background-color: #2196f3;
+  color: #fff;
+}
+#imresize{
+  position: relative;
+  padding: 5px;
+  cursor: sw-resize;
+}
+
+#zoompart {
+  position: fixed;
+  z-index: 8;
+  width: 100%;
+  height: 100%;
+  display: block;
+  background-color: #fff;
+}
+#imview{
+  resize:both;
+}
+
+
+
+#pane {
+	position: absolute;
+	width: 45%;
+	height: 45%;
+	top: 20%;
+	left: 20%;
+	
+	
+	margin: 0;
+	padding: 0;
+	z-index: 99;
+	border: 2px solid purple;
+	background: #fefefe;
+}
+
+#title {
+	font-family: monospace;
+	background: purple;
+	color: white;
+	font-size: 24px;
+	height: 30px;
+	text-align: center;
+}
+
+#ghostpane {
+	background: #999;
+	opacity: 0.2;
+
+	width: 45%;
+	height: 45%;
+	top: 20%;
+	left: 20%;
+	
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	z-index: 98;
+
+	-webkit-transition: all 0.25s ease-in-out;
+	-moz-transition: all 0.25s ease-in-out;
+	-ms-transition: all 0.25s ease-in-out;
+	-o-transition: all 0.25s ease-in-out;
+	transition: all 0.25s ease-in-out;
 }
