@@ -5,6 +5,7 @@ let pageType = 'A4';
 let zoomvl = 100;
 let imzoomvl = 100;
 let isScroll = 0;
+let fx,fy = 0;
 document.getElementById('wrapper').classList.add('toggled')
 
 pageMode.onclick = () => {
@@ -71,6 +72,7 @@ function dragElement(elmnt) {
     document.onmousemove = null;
   }
 }
+
 
 window.onscroll = function () {
   console.log("scrolled  " + window.pageYOffset)

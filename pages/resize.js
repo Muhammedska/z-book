@@ -25,8 +25,8 @@ var b, x, y;
 
 var redraw = false;
 
-var pane = document.getElementById('pane');
-var ghostpane = document.getElementById('ghostpane');
+var pane = document.getElementById('imview');
+//var ghostpane = document.getElementById('ghostpane');
 
 function setBounds(element, x, y, w, h) {
 	element.style.left = x + 'px';
@@ -35,16 +35,16 @@ function setBounds(element, x, y, w, h) {
 	element.style.height = h + 'px';
 }
 
-function hintHide() {
-  setBounds(ghostpane, b.left, b.top, b.width, b.height);
-  ghostpane.style.opacity = 0;
-
-  // var b = ghostpane.getBoundingClientRect();
-  // ghostpane.style.top = b.top + b.height / 2;
-  // ghostpane.style.left = b.left + b.width / 2;
-  // ghostpane.style.width = 0;
-  // ghostpane.style.height = 0;
-}
+//function hintHide() {
+//  setBounds(ghostpane, b.left, b.top, b.width, b.height);
+//  ghostpane.style.opacity = 0;
+//
+//  // var b = ghostpane.getBoundingClientRect();
+//  // ghostpane.style.top = b.top + b.height / 2;
+//  // ghostpane.style.left = b.left + b.width / 2;
+//  // ghostpane.style.width = 0;
+//  // ghostpane.style.height = 0;
+//}
 
 
 // Mouse events
@@ -156,36 +156,36 @@ function animate() {
       }
     }
 
-    hintHide();
+    //hintHide();
 
     return;
   }
 
   if (clicked && clicked.isMoving) {
 
-    if (b.top < FULLSCREEN_MARGINS || b.left < FULLSCREEN_MARGINS || b.right > window.innerWidth - FULLSCREEN_MARGINS || b.bottom > window.innerHeight - FULLSCREEN_MARGINS) {
-      // hintFull();
-      setBounds(ghostpane, 0, 0, window.innerWidth, window.innerHeight);
-      ghostpane.style.opacity = 0.2;
-    } else if (b.top < MARGINS) {
-      // hintTop();
-      setBounds(ghostpane, 0, 0, window.innerWidth, window.innerHeight / 2);
-      ghostpane.style.opacity = 0.2;
-    } else if (b.left < MARGINS) {
-      // hintLeft();
-      setBounds(ghostpane, 0, 0, window.innerWidth / 2, window.innerHeight);
-      ghostpane.style.opacity = 0.2;
-    } else if (b.right > rightScreenEdge) {
-      // hintRight();
-      setBounds(ghostpane, window.innerWidth / 2, 0, window.innerWidth / 2, window.innerHeight);
-      ghostpane.style.opacity = 0.2;
-    } else if (b.bottom > bottomScreenEdge) {
-      // hintBottom();
-      setBounds(ghostpane, 0, window.innerHeight / 2, window.innerWidth, window.innerWidth / 2);
-      ghostpane.style.opacity = 0.2;
-    } else {
-      hintHide();
-    }
+    //if (b.top < FULLSCREEN_MARGINS || b.left < FULLSCREEN_MARGINS || b.right > window.innerWidth - FULLSCREEN_MARGINS || b.bottom > window.innerHeight - FULLSCREEN_MARGINS) {
+    //  // hintFull();
+    //  setBounds(ghostpane, 0, 0, window.innerWidth, window.innerHeight);
+    //  ghostpane.style.opacity = 0.2;
+    //} else if (b.top < MARGINS) {
+    //  // hintTop();
+    //  setBounds(ghostpane, 0, 0, window.innerWidth, window.innerHeight / 2);
+    //  ghostpane.style.opacity = 0.2;
+    //} else if (b.left < MARGINS) {
+    //  // hintLeft();
+    //  setBounds(ghostpane, 0, 0, window.innerWidth / 2, window.innerHeight);
+    //  ghostpane.style.opacity = 0.2;
+    //} else if (b.right > rightScreenEdge) {
+    //  // hintRight();
+    //  setBounds(ghostpane, window.innerWidth / 2, 0, window.innerWidth / 2, window.innerHeight);
+    //  ghostpane.style.opacity = 0.2;
+    //} else if (b.bottom > bottomScreenEdge) {
+    //  // hintBottom();
+    //  setBounds(ghostpane, 0, window.innerHeight / 2, window.innerWidth, window.innerWidth / 2);
+    //  ghostpane.style.opacity = 0.2;
+    //} else {
+    //  hintHide();
+    //}
 
     if (preSnapped) {
       setBounds(pane,
