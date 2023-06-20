@@ -110,7 +110,10 @@ phead {
   display: block;
   background-color: #fff;
 }
-
+#imview{
+  min-width: 200px;
+  border: 8px #2196f3 dashed;
+}
 
 
 
