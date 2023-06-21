@@ -14,13 +14,23 @@ function takeshot() {
         })
 }
 
-const object = document.querySelectorAll('zoom')
-const qitem = document.querySelectorAll(".q-item")
-var a = 0;
-for (const element of object) {
-    
-    element.onclick = () => {
-        console.log(qitem[a].childNodes.length);
-    };
-    a++   
+function snapshot(params) {
+    let div =
+    document.getElementById(params);
+
+// Use the html2canvas
+// function to take a screenshot
+// and append it
+// to the output div
+html2canvas(div).then(
+    function (canvas) {
+        document.getElementById("imview").remove();
+        document
+        .getElementById('imparent')
+        .appendChild(canvas);
+        canvas.id = "imview";
+        console.log(canvas);
+        document.getElementById("zoompart").style.display = "";
+    })
+
 }

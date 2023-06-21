@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="assets/css/Sidebar-Menu-sidebar.css">
     <link rel="stylesheet" href="assets/css/Sidebar-Menu.css">
     <link rel="stylesheet" href="assets/css/zbook.css">
-    
+
 </head>
 
 <body>
@@ -37,10 +37,12 @@
                     <a>
                         <i class="fa fa-arrow-circle-o-up drag-item"></i>
                     </a>
-                    <span class="drag-item"><t>1</t> </span>
+                    <span class="drag-item">
+                        <t>1</t>
+                    </span>
                     <a>
                         <i class="fa fa-arrow-circle-o-down drag-item"></i>
-                    </a> 
+                    </a>
                 </span>
                 <a id="pgmd" class="badge bg-primary drag-item-2">A4</a>
 
@@ -59,8 +61,8 @@
             </div>
             <div id="immove" class="bg-dark">
                 <!-- Include a header DIV with the same name as the draggable DIV, followed by "header" -->
-                <div id="immoveheader" >::&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;::</div>
-                <div class="text-left" style="text-align: left;">                    
+                <div id="immoveheader">::&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;::</div>
+                <div class="text-left" style="text-align: left;">
                     <a onclick="imzoomplus()">
                         <i class="fa fa-search-plus drag-item"></i>
                     </a>
@@ -69,12 +71,17 @@
                         <i class="fa fa-search-minus drag-item"></i>
                     </a>
                     <a onclick="zoomparthide()">
-                        <i class="fa fa-times-circle-o drag-item" ></i>
-                    </a>
+                        <i class="fa fa-times-circle-o drag-item text-danger"></i>
+                    </a> 
+                    <a onclick="zplaid()">
+                        <i class="fa fa-hashtag drag-item" aria-hidden="true"></i>
+                    </a> 
                 </div>
                 <div class="text-right">
-                    <div>
-                        <img id="imview" src="" alt="test"  style="width: 400px;">
+                    <div id="imarea">
+                        <div id="imparent">
+                            <canvas id="imview" src="" alt="test" style="width: 400px;"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -95,21 +102,26 @@
                                 <phead>
 
                                 </phead>
-                                <div class="q-item">
+                                <div class="q-item" id="p1-1">
                                     <div class="row">
                                         <div class="col-1">
-                                            <zoom class="mg col-1">
-                                                <i class="fa fa-search" style="font-size: 20px;" ></i>
-                                            </zoom>
+                                            <a class="mg col-1" onclick="snapshot('p1-1')">
+                                                <i class="fa fa-search" style="font-size: 20px;"></i>
+                                            </a>
                                         </div>
-                                        
-                                        <div class="col-11 ">
 
-                                            <img src="./book/1/Ekran görüntüsü 2023-06-20 171030.png" class="q-img col-11">
+                                        <div class="col-11 ">
+                                            <img src="./book/1/Ekran görüntüsü 2023-06-20 171030.png"
+                                                class="q-img col-11">
                                         </div>
                                     </div>
                                 </div>
+                                
                                 <div class="q-item row">
+                                    <div class="card bg-transparent" >
+                                        <img class=" q-img" src="./book/1/Ekran görüntüsü 2023-06-20 171030.png" alt="Card image">
+                                        <a  class="mg" >See Profile</a>                                        
+                                      </div>
                                 </div>
                                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut aliquam facilis
                                 qui? Officia
@@ -128,7 +140,7 @@
                                     Click the button below to
                                     take a screenshot of the div.
                                     <br><br>
-                              
+
                                     <!-- Define the button 
                                     that will be used to 
                                     take the screenshot -->
@@ -138,8 +150,8 @@
                                 </div>
                                 <h1>Screenshot:</h1>
                                 <div id="output"></div>
-                              
-                                
+
+
                             </page>
 
                         </div>

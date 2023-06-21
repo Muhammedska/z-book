@@ -25,14 +25,14 @@ var b, x, y;
 
 var redraw = false;
 
-var pane = document.getElementById('imview');
+const pane = document.getElementById('imparent');
 //var ghostpane = document.getElementById('ghostpane');
 
 function setBounds(element, x, y, w, h) {
-	element.style.left = x + 'px';
-	element.style.top = y + 'px';
-	element.style.width = w + 'px';
-	element.style.height = h + 'px';
+  element.style.left = x + 'px';
+  element.style.top = y + 'px';
+  element.style.width = w + 'px';
+  element.style.height = h + 'px';
 }
 
 //function hintHide() {
@@ -64,11 +64,11 @@ function onTouchDown(e) {
 }
 
 function onTouchMove(e) {
-  onMove(e.touches[0]);		
+  onMove(e.touches[0]);
 }
 
 function onTouchEnd(e) {
-  if (e.touches.length ==0) onUp(e.changedTouches[0]);
+  if (e.touches.length == 0) onUp(e.changedTouches[0]);
 }
 
 function onMouseDown(e) {
@@ -99,7 +99,7 @@ function onDown(e) {
 
 function canMove() {
   return x > 0 && x < b.width && y > 0 && y < b.height
-  && y < 30;
+    && y < 30;
 }
 
 function calc(e) {
@@ -137,27 +137,36 @@ function animate() {
 
   if (clicked && clicked.isResizing) {
 
-    if (clicked.onRightEdge) pane.style.width = Math.max(x, minWidth) + 'px';
-    if (clicked.onBottomEdge) pane.style.height = Math.max(y, minHeight) + 'px';
+    if (clicked.onRightEdge) {
+      pane.style.width = Math.max(x, minWidth) + 'px'
+      document.getElementById("imview").style.width = pane.offsetWidth - 10 + "px";
+    };
+    if (clicked.onBottomEdge) {
+      pane.style.height = Math.max(y, minHeight) + 'px'
+      document.getElementById("imview").style.height = pane.offsetHeight - 10 + "px";
+
+    };
 
     if (clicked.onLeftEdge) {
-      var currentWidth = Math.max(clicked.cx - e.clientX  + clicked.w, minWidth);
+      var currentWidth = Math.max(clicked.cx - e.clientX + clicked.w, minWidth);
       if (currentWidth > minWidth) {
         pane.style.width = currentWidth + 'px';
-        pane.style.left = e.clientX + 'px';	
+        pane.style.left = e.clientX + 'px';
+        document.getElementById("imview").style.width = pane.offsetWidth - 10 + "px";
+
       }
     }
 
     if (clicked.onTopEdge) {
-      var currentHeight = Math.max(clicked.cy - e.clientY  + clicked.h, minHeight);
+      var currentHeight = Math.max(clicked.cy - e.clientY + clicked.h, minHeight);
       if (currentHeight > minHeight) {
         pane.style.height = currentHeight + 'px';
-        pane.style.top = e.clientY + 'px';	
+        pane.style.top = e.clientY + 'px';
+        document.getElementById("imview").style.height = pane.offsetHeight - 10 + "px";
       }
     }
 
     //hintHide();
-
     return;
   }
 
@@ -189,10 +198,10 @@ function animate() {
 
     if (preSnapped) {
       setBounds(pane,
-      	e.clientX - preSnapped.width / 2,
-      	e.clientY - Math.min(clicked.y, preSnapped.height),
-      	preSnapped.width,
-      	preSnapped.height
+        e.clientX - preSnapped.width / 2,
+        e.clientY - Math.min(clicked.y, preSnapped.height),
+        preSnapped.width,
+        preSnapped.height
       );
       return;
     }
@@ -261,6 +270,7 @@ function onUp(e) {
     //hintHide();
 
   }
+
 
   clicked = null;
 

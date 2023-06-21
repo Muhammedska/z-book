@@ -5,6 +5,7 @@ let zoomvl = 100;
 let imzoomvl = 100;
 let isScroll = 0;
 let fx,fy = 0;
+let isplaid = false;
 document.getElementById('wrapper').classList.add('toggled')
 
 pageMode.onclick = () => {
@@ -110,9 +111,11 @@ function zoomminus() {
 function imzoomplus() {
   imzoomvl += 10
 
-  var page = document.getElementById('imview');
+  //var page = document.getElementById('imview');
+  var pagep = document.getElementById('imparent');
 
-  page.style.zoom = imzoomvl + "%";
+  //page.style.zoom = imzoomvl + "%";
+  pagep.style.zoom = imzoomvl + "%";
   document.getElementById('imzoomval').innerText = "%" + imzoomvl;
 }
 
@@ -121,10 +124,14 @@ function imzoomminus() {
   if (imzoomvl < 20) {
     imzoomvl = 20
   } else {
-    var page = document.getElementById('imview');
+    //var page = document.getElementById('imview');
+    var pagep = document.getElementById('imparent');
 
-    page.style.zoom = imzoomvl + "%";
-    document.getElementById('imzoomval').innerText = "%" + imzoomvl;
+    //page.style.zoom = imzoomvl + "%";
+    pagep.style.zoom = imzoomvl + "%";
+    document.getElementById('imzoomval').innerText = "%" + imzoomvl;   
+    
+
   }
 }
 
@@ -132,7 +139,23 @@ function zoompart(item) {
   const zoompartarea = document.getElementById('zoompart')
   zoompartarea.style.height = window.screen.height;
 }
-function zoomparthide(){
-  document.getElementById('zoompart').style.display = "none";
-}
 
+function zoomparthide(){
+  if (isplaid == true) {    
+    document.getElementById('zoompart').classList.remove("plaid") ;  
+  }
+  document.getElementById('zoompart').style.display = "none";
+  document.getElementById('imparent').style.width = 400+"px";
+  document.getElementById('imparent').style.height ="auto"  ;
+
+  
+}
+function zplaid(){
+  if (isplaid == true) {    
+    document.getElementById('zoompart').classList.remove("plaid");
+    isplaid = false;
+  }else{
+    isplaid = true;
+    document.getElementById('zoompart').classList.add("plaid");
+  }
+}

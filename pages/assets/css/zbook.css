@@ -36,7 +36,7 @@ page.A4 {
   height: 29.7cm;
 }
 page.fill {
-  width: auto;
+  width: 100%;
   height: 29.7cm;
 }
 page[size="A4"][layout="landscape"] {
@@ -65,28 +65,33 @@ phead {
   margin-bottom: 5px;
   padding: 5px;
 }
-.q-item{
+.q-item {
   width: 50%;
   margin-top: 5px;
-  bottom:5px;
+  bottom: 5px;
 }
-.mg{
+.mg {
   width: 40px;
-  height: 40px;  
+  height: 40px;
   position: relative;
-  left:0px;
-  top:0px;
+  left: 0px;
+  top: 0px;
   z-index: 2;
   padding: 5px;
   border-radius: 100%;
-  color:#f1f1f1;
-  background-color:purple;
+  color: #f1f1f1;
+  background-color: purple;
 }
-.q-item>.q-img{
+.q-item > .q-img {
   z-index: 1;
   position: relative;
   width: 100%;
   height: auto;
+}
+.plaid{
+  background-image:url("../img/plaid.png");
+  background-size: 80px;  
+  background-repeat: repeat;
 }
 #mydiv {
   user-select: none;
@@ -144,19 +149,18 @@ phead {
   background-color: #2196f3;
   color: #fff;
 }
-#imresize{
+#imresize {
   position: relative;
   padding: 5px;
   cursor: sw-resize;
 }
-#canvos{
+#canvos {
   position: fixed;
   z-index: 11;
   width: 100%;
   height: 100%;
   display: block;
   background-color: #ffffff00;
-
 }
 #zoompart {
   position: fixed;
@@ -166,54 +170,56 @@ phead {
   display: block;
   background-color: #fff;
 }
-#imview{
+#imview {
+  position: static;
+  min-width: 200px;
+  padding: 10px;
+}
+#imparent {
   min-width: 200px;
   border: 8px #2196f3 dashed;
 }
 
-
-
 #pane {
-	position: absolute;
-	width: 45%;
-	height: 45%;
-	top: 20%;
-	left: 20%;
-	
-	
-	margin: 0;
-	padding: 0;
-	z-index: 99;
-	border: 2px solid purple;
-	background: #fefefe;
+  position: absolute;
+  width: 45%;
+  height: 45%;
+  top: 20%;
+  left: 20%;
+
+  margin: 0;
+  padding: 0;
+  z-index: 99;
+  border: 2px solid purple;
+  background: #fefefe;
 }
 
 #title {
-	font-family: monospace;
-	background: purple;
-	color: white;
-	font-size: 24px;
-	height: 30px;
-	text-align: center;
+  font-family: monospace;
+  background: purple;
+  color: white;
+  font-size: 24px;
+  height: 30px;
+  text-align: center;
 }
 
 #ghostpane {
-	background: #999;
-	opacity: 0.2;
+  background: #999;
+  opacity: 0.2;
 
-	width: 45%;
-	height: 45%;
-	top: 20%;
-	left: 20%;
-	
-	position: absolute;
-	margin: 0;
-	padding: 0;
-	z-index: 98;
+  width: 45%;
+  height: 45%;
+  top: 20%;
+  left: 20%;
 
-	-webkit-transition: all 0.25s ease-in-out;
-	-moz-transition: all 0.25s ease-in-out;
-	-ms-transition: all 0.25s ease-in-out;
-	-o-transition: all 0.25s ease-in-out;
-	transition: all 0.25s ease-in-out;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  z-index: 98;
+
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -ms-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
 }
