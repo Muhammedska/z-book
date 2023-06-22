@@ -3,6 +3,8 @@
 // Modules to control application life and create native browser window
 const { app, BrowserWindow,Notification, ipcMain } = require('electron')
 const path = require('path')
+const screenshot = require('electron-screenshot');
+const { screen } = require('electron');
 
 let isWindowMax = false;
 
@@ -25,10 +27,10 @@ const createWindow = () => {
   })
 
   // and load the index.html of the app.
-  mainWindow.loadFile('pages/index.html')
+  mainWindow.loadFile('pages/test.html')
 
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools()
 }
 
 // This method will be called when Electron has finished
@@ -36,7 +38,27 @@ const createWindow = () => {
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
   createWindow()
+  
   ipcMain.handle('ping', () => 'pong')
+  ipcMain.handle('sscapture', (x,y,w,h) => {
+    screenshot({
+      filename: './screenshot.png', // Kaydedilecek dosya adı ve yolunu belirleyin
+      x: x,
+      y: y,
+      width: w,
+      height: h
+    }, (error, complete) => {
+      if (error) {
+        console.error('Ekran görüntüsü alınamadı:', error);
+      } else {
+        console.log('Ekran görüntüsü başarıyla alındı:', complete);
+      }
+  
+      // Uygulamayı kapatın.
+      app.quit();
+    });
+  });
+
   ipcMain.on('close-window', () => {
     createNotfiy('Sound Near', 'Pencere kapatıldı')
     win.close()

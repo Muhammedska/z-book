@@ -8,6 +8,18 @@ let fx,fy = 0;
 let isplaid = false;
 document.getElementById('wrapper').classList.add('toggled')
 
+
+function msgbox(msg,mh) {
+  // mesage modulu 
+  var msgb = document.getElementById("messagebox");
+  msgb.classList.add('show');
+  msgb.classList.add('fade');
+
+  document.getElementById("msgbc").innerText = msg;
+  document.getElementById("msgbh").innerText = mh;
+
+}
+
 pageMode.onclick = () => {
   console.log(pageType)
   if (pageType == 'fill') {
@@ -31,7 +43,7 @@ pageMode.onclick = () => {
 }
 // Make the DIV element draggable:
 dragElement(document.getElementById("mydiv"));
-dragElement(document.getElementById('immove'))
+dragElement(document.getElementById('immove'));
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
   if (document.getElementById(elmnt.id + "header")) {
@@ -90,23 +102,31 @@ window.onscroll = function () {
 };
 
 function zoomplus() {
-  zoomvl += 10
-  var page = document.getElementsByTagName('page');
-  for (const iterator of page) {
-
-    iterator.style.zoom = zoomvl + "%";
+  if (pageType == "A4") {
+    zoomvl += 10
+    var page = document.getElementsByTagName('page');
+    for (const iterator of page) {
+  
+      iterator.style.zoom = zoomvl + "%";
+    }
+    document.getElementById('zoomval').innerText = "%" + zoomvl;
+  } else {
+    msgbox("Doldur modunda büyütme fonksiyonu aktif değildir.","Bilgilendirme")
   }
-  document.getElementById('zoomval').innerText = "%" + zoomvl;
 }
 
 function zoomminus() {
-  zoomvl -= 10
-  var page = document.querySelectorAll('page');
-  for (const iterator of page) {
-
-    iterator.style.zoom = zoomvl + "%";
+  if (pageType == "A4") {
+    zoomvl += 10
+    var page = document.getElementsByTagName('page');
+    for (const iterator of page) {
+  
+      iterator.style.zoom = zoomvl + "%";
+    }
+    document.getElementById('zoomval').innerText = "%" + zoomvl;
+  } else {
+    
   }
-  document.getElementById('zoomval').innerText = "%" + zoomvl;
 }
 function imzoomplus() {
   imzoomvl += 10

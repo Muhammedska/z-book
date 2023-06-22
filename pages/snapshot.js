@@ -34,3 +34,16 @@ html2canvas(div).then(
     })
 
 }
+const image = document.getElementById("image");
+const result = document.getElementById("result");
+const cropper = new Cropper(image, {
+  aspectRatio: 16 / 9,
+  crop(event) {
+    result.innerHTML = "";
+    result.appendChild(cropper.getCroppedCanvas());
+  }
+});
+
+const canvasData = cropper.getCanvasData();
+
+console.log(canvasData);
